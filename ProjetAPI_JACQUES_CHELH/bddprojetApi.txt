@@ -1,0 +1,69 @@
+DROP TABLE IF EXISTS offre;
+DROP TABLE IF EXISTS personne;
+DROP TABLE IF EXISTS candidature;
+DROP TABLE IF EXISTS recrutement;
+
+create table offre (
+    	id VARCHAR ( 50 ) PRIMARY KEY,
+   	nomStage VARCHAR ( 50 ),
+   	domaine VARCHAR ( 50 ),
+	nomOrga VARCHAR ( 50 ),
+	descStage VARCHAR ( 50 ),
+	datePub VARCHAR ( 50 ),
+	nivEtu VARCHAR ( 50 ),
+	expRequise VARCHAR ( 50 ),
+	dateDeb VARCHAR ( 50 ),
+	duree VARCHAR ( 50 ),
+	salaire VARCHAR ( 50 ),
+	indemnisation VARCHAR ( 50 ),
+	orgaAdrPays VARCHAR ( 50 ),
+	orgaAdrVille VARCHAR ( 50 ),
+	orgaAdrCP VARCHAR ( 50 ),
+	orgaAdrRue VARCHAR ( 50 ),
+	orgaEmail VARCHAR ( 50 ),
+	orgaTel VARCHAR ( 50 ),
+	orgaURL VARCHAR ( 50 ),
+	stageAdrPays VARCHAR ( 50 ),
+	stageAdrVille VARCHAR ( 50 ),
+	stageAdrCP VARCHAR ( 50 ),
+	stageAdrRue VARCHAR ( 50 ),
+	latitude VARCHAR ( 50 ),
+	longitude VARCHAR ( 50 ),
+	tel VARCHAR ( 50 ),
+	url VARCHAR ( 50 ),
+	statut VARCHAR ( 50 ),
+	nomUserRet VARCHAR ( 50 )
+);
+create table personne (
+    	id VARCHAR ( 50 ) primary key,
+    	prenom VARCHAR ( 50 ),
+    	nom VARCHAR ( 50 ),
+ 	niveau VARCHAR ( 50 ),
+	type VARCHAR ( 50 )
+);
+create table candidature (
+	id VARCHAR ( 50 ) primary key,
+	idOffre VARCHAR ( 50 ),
+	idPersonne VARCHAR ( 50 )
+);
+create table recrutement (
+	id VARCHAR ( 50 ) primary key,
+	nomOffre VARCHAR ( 50 ),
+	idCandidature VARCHAR ( 200 ),
+	nbCandidats VARCHAR ( 50 )
+);
+
+INSERT INTO offre (id,nomstage,domaine,nomorga,descstage,datepub,nivetu,exprequise,datedeb,duree,salaire,indemnisation,orgaadrpays,orgaadrville,orgaadrcp,orgaadrrue,orgaemail,orgatel,orgaurl,stageadrpays,stageadrville,stageadrcp,stageadrrue,latitude,longitude,tel,url,statut,nomuserret) VALUES
+	 ('5aeff0da-ccba-11ed-afa1-0242ac120002','Stage Developpeur Web','Informatique','TechCompany','Développement d''applications Web','2023-01-01','Bac+3','1 an','2023-04-01','6 mois','1500','500','France','Paris','75000','1 rue de la Tech','contact@techcompany.com','0334658988','https://techcompany.com','France','Paris','75000','1 rue de la Tech','48.8566','2.3522','+33123456789','https://techcompany.com/stage-web-dev','ouvert','noboby'),
+	 ('7b51139e-ccbb-11ed-afa1-0242ac120002','Stage Assistant Marketing','Marketing','MarketingPro','Aider à la conception de campagnes marketing','2023-01-15','Bac+2','Aucune','2023-05-01','4 mois','1200','300','France','Lyon','69000','2 rue du Marketing','contact@marketingpro.com','0954672133','https://marketingpro.com','France','Lyon','69000','2 rue du Marketing','45.7640','4.8357','+33498765432','https://marketingpro.com/stage-assistant-marketing','ouvert','nobody'),
+	 ('a634a814-ccbb-11ed-afa1-0242ac120002','Stage Ingénieur Mécanique','Ingénierie','MecaCompany','Conception et analyse de systèmes mécaniques','2023-02-01','Bac+5','2 ans','2023-06-01','6 mois','1800','600','France','Toulouse','31000','3 rue de la libération','contact@mecaCompany.com','0866574323','https://mecaCompany.com','France','Lyon','69000','2 rue du Carnage','45.7640','4.8357','+33498765432','https://mecaCompany.com/stage','ouvert','nobody');
+
+INSERT INTO personne (id,prenom,nom,niveau,"type") VALUES
+	 ('da5fb606-ccbb-11ed-afa1-0242ac120002','Enzo','JURIO','Master','user'),
+	 ('f45ba9fc-ccbb-11ed-afa1-0242ac120002','Gauthier','JACQUES','Licence','admin'),
+	 ('ec2e5c02-ccbb-11ed-afa1-0242ac120002','Alban','CORIANT','Bac','user'),
+	 ('ca2e8a77-eec7-4e3f-a999-e6e0234ffe76','Jordan','LAURENT','Brevet','user');
+
+INSERT INTO candidature (id,idoffre,idpersonne) 
+VALUES ('21a183e6-ccbc-11ed-afa1-0242ac120002','7b51139e-ccbb-11ed-afa1-0242ac120002','ec2e5c02-ccbb-11ed-afa1-0242ac120002');
+
